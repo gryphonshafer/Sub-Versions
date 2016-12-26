@@ -5,6 +5,7 @@ use strict;
 use warnings;
 use Sub::Util 'subname';
 use Devel::Hook;
+use Carp 'croak';
 
 # VERSION
 
@@ -25,6 +26,7 @@ sub import {
         my $name = subname($code);
         my ( $class, $method ) = $name =~ m/^(.+)::(.+?)$/;
 
+        # store sub ref along with version in $versions for later use
         $versions->{$package}{$method} = [
             sort { $b->{version} <=> $a->{version} } (
                 @{ $versions->{$package}{$method} || [] },
@@ -67,6 +69,38 @@ sub import {
                 _eq_sub( $package . '::' . $method, $versions->{$package}{$method}[0]{code} );
             }
         } );
+
+        # setup the subver() method functionality
+        _eq_sub( "$package\::subver", sub {
+            my ( $self, $version, $method ) = @_;
+            ( my $v = $version ) =~ s/\s+//g;
+
+            my ( $v_vector, $v_number ) = $v =~ /^([<>=]{0,2})(\d+)$/;
+            $v_vector ||= '=';
+            croak(qq{"$version" not a valid version criteria}) unless ( defined $v_number );
+
+            # unique version numbers of any method matching the name $method
+            my %versions_found = map {
+                map { $_->{version} => 1 } @{ $versions->{$_}{$method} || [] }
+            } keys %$versions;
+
+            # valid version numbers based on version vector input
+            my @valid_versions = sort { $b <=> $a } grep {
+                ( $v_vector eq '='  ) ? $_ == $v_number :
+                ( $v_vector eq '==' ) ? $_ == $v_number :
+                ( $v_vector eq '>=' ) ? $_ >= $v_number :
+                ( $v_vector eq '<=' ) ? $_ <= $v_number :
+                ( $v_vector eq '>'  ) ? $_ >  $v_number :
+                ( $v_vector eq '<'  ) ? $_ <  $v_number : $_ != $v_number
+            } keys %versions_found;
+
+            # pick the highest version that can be called off the object
+            my $selected_version = ( grep { $self->can( $method . '_v' . $_ ) } @valid_versions )[0];
+            croak(qq{No "$method" subroutine with "$version" version}) unless ( defined $selected_version );
+
+            $selected_version = 'v' . $selected_version;
+            return sub { $self->$selected_version->$method(@_) };
+        } ) unless ( defined &{"$package\::subver"} );
 
         return;
     } );
@@ -124,6 +158,9 @@ __END__
 
     $object->simple_method;     # returns "version 2"
     $object->v1->simple_method; # returns "version 1"
+
+    # select "simple_method" version 42 or higher if available
+    $object->subver( '>= 42', 'simple_method' )->();
 
     # ...or with Moose...
 
@@ -185,6 +222,17 @@ In the process of building an REST/JSON API web service, I found I needed a way
 to very simply version calls to parts of the model. I needed to support legacy
 versions in parallel with the most recent version and allow consumers to
 explicitly call a particular version.
+
+=head2 Sub Version Selection Method
+
+If you don't know the version you want to access exactly, call the method
+C<subver()> and provide it with a version vector and method name.
+
+    # select "simple_method" version 42 or higher if available
+    $object->subver( '>= 42', 'simple_method' )->();
+
+You can: >, <, >=, <=, or =, with or without a space between that and the
+version number. Only specifying a version number implies a = vector.
 
 =head1 SEE ALSO
 
