@@ -17,6 +17,7 @@ my %WriteMakefileArgs = (
   "MIN_PERL_VERSION" => "5.006",
   "NAME" => "Sub::Versions",
   "PREREQ_PM" => {
+    "Carp" => 0,
     "Devel::Hook" => 0,
     "Sub::Util" => 0,
     "strict" => 0,
@@ -28,8 +29,8 @@ my %WriteMakefileArgs = (
     "IPC::Open3" => 0,
     "Test::More" => 0,
     "Test::Most" => 0,
-    "blib" => "1.01",
-    "constant" => 0
+    "base" => 0,
+    "blib" => "1.01"
   },
   "VERSION" => "1.00",
   "test" => {
@@ -39,6 +40,7 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
+  "Carp" => 0,
   "Devel::Hook" => 0,
   "File::Spec" => 0,
   "IO::Handle" => 0,
@@ -46,8 +48,8 @@ my %FallbackPrereqs = (
   "Sub::Util" => 0,
   "Test::More" => 0,
   "Test::Most" => 0,
+  "base" => 0,
   "blib" => "1.01",
-  "constant" => 0,
   "strict" => 0,
   "warnings" => 0
 );

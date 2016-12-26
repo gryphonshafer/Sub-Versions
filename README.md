@@ -38,6 +38,9 @@ version 1.00
     $object->simple_method;     # returns "version 2"
     $object->v1->simple_method; # returns "version 1"
 
+    # select "simple_method" version 42 or higher if available
+    $object->subver( '>= 42', 'simple_method' )->();
+
     # ...or with Moose...
 
     package MyOtherExampleClass;
@@ -98,6 +101,17 @@ In the process of building an REST/JSON API web service, I found I needed a way
 to very simply version calls to parts of the model. I needed to support legacy
 versions in parallel with the most recent version and allow consumers to
 explicitly call a particular version.
+
+## Sub Version Selection Method
+
+If you don't know the version you want to access exactly, call the method
+`subver()` and provide it with a version vector and method name.
+
+    # select "simple_method" version 42 or higher if available
+    $object->subver( '>= 42', 'simple_method' )->();
+
+You can: >, <, >=, <=, or =, with or without a space between that and the
+version number. Only specifying a version number implies a = vector.
 
 # SEE ALSO
 
