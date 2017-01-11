@@ -1,49 +1,51 @@
+package _MockMyClass;
+
 use strict;
 use warnings;
 use Test::Most;
 
-package _MockMyClass {
-    use strict;
-    use warnings;
-    use Test::Most;
+BEGIN { use_ok('Sub::Versions'); }
 
-    BEGIN { use_ok('Sub::Versions'); }
-
-    sub new {
-        return bless( {}, shift );
-    }
-
-    sub out : v11 {
-        return "out v11 $_[-1]";
-    }
-
-    sub out : v12 {
-        return "out v12 $_[-1]";
-    }
-
-    sub in : v12 {
-        return 'in v12 $_[-1]';
-    }
-
-    sub out : v10 {
-        return "out v10 $_[-1]";
-    }
+sub new {
+    return bless( {}, shift );
 }
 
-package _MockMySubClass {
-    use strict;
-    use warnings;
-
-    use base '_MockMyClass';
-
-    sub out : v12 {
-        return "out +v12+ $_[-1]";
-    }
-
-    sub out : v13 {
-        return "out !v13! $_[-1]";
-    }
+sub out : v11 {
+    return "out v11 $_[-1]";
 }
+
+sub out : v12 {
+    return "out v12 $_[-1]";
+}
+
+sub in : v12 {
+    return 'in v12 $_[-1]';
+}
+
+sub out : v10 {
+    return "out v10 $_[-1]";
+}
+
+package _MockMySubClass;
+
+use strict;
+use warnings;
+
+use base '_MockMyClass';
+
+sub out : v12 {
+    return "out +v12+ $_[-1]";
+}
+
+sub out : v13 {
+    return "out !v13! $_[-1]";
+}
+
+package main;
+
+use strict;
+use warnings;
+use Test::Most;
 
 my $obj = _MockMyClass->new;
 
