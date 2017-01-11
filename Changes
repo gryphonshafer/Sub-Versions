@@ -1,6 +1,7 @@
 Revision history for Sub::Versions
 
 {{$NEXT}}
+        - Fix for CPAN tester fail report for Perl 5.8, 5.10, and 5.12 (Thank you, manwar.)
 
 1.00      2016-12-26 13:47:14-08:00 America/Los_Angeles
         - First version, released on an unsuspecting world.
