@@ -1,8 +1,10 @@
 package Sub::Versions;
 # ABSTRACT: Subroutine versioning syntactic sugar
 
+use 5.014;
 use strict;
 use warnings;
+
 use Sub::Util 'subname';
 use Devel::Hook;
 use Carp 'croak';
