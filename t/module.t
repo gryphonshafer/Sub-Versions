@@ -26,6 +26,10 @@ sub out : v10 {
     return "out v10 $_[-1]";
 }
 
+sub unversioned {
+    return "unversioned $_[-1]";
+}
+
 package _MockMySubClass;
 
 use strict;
@@ -75,5 +79,11 @@ is( $subobj->subver( '>=11', 'out' )->(1138), 'out !v13! 1138', '$subobj->subver
 is( $subobj->subver( '<=11', 'out' )->(1138), 'out v11 1138', '$subobj->subver( "<=11", "out" )->(1138)' );
 is( $subobj->subver( '=11', 'out' )->(1138), 'out v11 1138', '$subobj->subver( "=11", "out" )->(1138)' );
 is( $subobj->subver( '11', 'out' )->(1138), 'out v11 1138', '$subobj->subver( "11", "out" )->(1138)' );
+
+is(
+    $subobj->subver( '>=11', 'unversioned' )->(1138),
+    'unversioned 1138',
+    '$subobj->subver( ">=11", "unversioned" )->(1138)',
+);
 
 done_testing;

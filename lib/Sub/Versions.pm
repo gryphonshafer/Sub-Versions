@@ -98,10 +98,15 @@ sub import {
 
             # pick the highest version that can be called off the object
             my $selected_version = ( grep { $self->can( $method . '_v' . $_ ) } @valid_versions )[0];
-            croak(qq{No "$method" subroutine with "$version" version}) unless ( defined $selected_version );
 
-            $selected_version = 'v' . $selected_version;
-            return sub { $self->$selected_version->$method(@_) };
+            if ( defined $selected_version ) {
+                $selected_version = 'v' . $selected_version;
+                return sub { $self->$selected_version->$method(@_) };
+            }
+
+            return sub { $self->$method(@_) } if ( $self->can($method) );
+
+            croak(qq{No "$method" subroutine with "$version" version});
         } ) unless ( defined &{"$package\::subver"} );
 
         return;

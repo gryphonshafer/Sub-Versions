@@ -4,7 +4,7 @@ Sub::Versions - Subroutine versioning syntactic sugar
 
 # VERSION
 
-version 1.01
+version 1.02
 
 [![Build Status](https://travis-ci.org/gryphonshafer/Sub-Versions.svg)](https://travis-ci.org/gryphonshafer/Sub-Versions)
 [![Coverage Status](https://coveralls.io/repos/gryphonshafer/Sub-Versions/badge.png)](https://coveralls.io/r/gryphonshafer/Sub-Versions)
@@ -130,7 +130,7 @@ You can also look for additional information at:
 
 # AUTHOR
 
-Gryphon Shafer <gryphon@cpan.org>
+Gryphon Shafer &lt;gryphon@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
