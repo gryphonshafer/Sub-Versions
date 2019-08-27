@@ -158,6 +158,9 @@ __END__
         return 'version 2';
     }
 
+    # ...and just for this inline example:
+    BEGIN { $INC{'MyExampleClass.pm'} = 1 }
+
     # ...meanwhile, elsewhere...
 
     use MyExampleClass;
