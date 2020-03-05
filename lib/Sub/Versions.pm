@@ -252,9 +252,7 @@ You can also look for additional information at:
 
 =for :list
 * L<GitHub|https://github.com/gryphonshafer/Sub-Versions>
-* L<CPAN|http://search.cpan.org/dist/Sub-Versions>
 * L<MetaCPAN|https://metacpan.org/pod/Sub::Versions>
-* L<AnnoCPAN|http://annocpan.org/dist/Sub-Versions>
 * L<Travis CI|https://travis-ci.org/gryphonshafer/Sub-Versions>
 * L<Coveralls|https://coveralls.io/r/gryphonshafer/Sub-Versions>
 * L<CPANTS|http://cpants.cpanauthors.org/dist/Sub-Versions>
