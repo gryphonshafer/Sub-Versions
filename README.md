@@ -6,8 +6,8 @@ Sub::Versions - Subroutine versioning syntactic sugar
 
 version 1.03
 
-[![Build Status](https://travis-ci.org/gryphonshafer/Sub-Versions.svg)](https://travis-ci.org/gryphonshafer/Sub-Versions)
-[![Coverage Status](https://coveralls.io/repos/gryphonshafer/Sub-Versions/badge.png)](https://coveralls.io/r/gryphonshafer/Sub-Versions)
+[![build](https://github.com/gryphonshafer/Sub-Versions/workflows/build/badge.svg)](https://github.com/gryphonshafer/Sub-Versions/actions?query=workflow%3Abuild)
+[![codecov](https://codecov.io/gh/gryphonshafer/Sub-Versions/graph/badge.svg)](https://codecov.io/gh/gryphonshafer/Sub-Versions)
 
 # SYNOPSIS
 
@@ -29,6 +29,9 @@ version 1.03
     sub simple_method : v2 {
         return 'version 2';
     }
+
+    # ...and just for this inline example:
+    BEGIN { $INC{'MyExampleClass.pm'} = 1 }
 
     # ...meanwhile, elsewhere...
 
@@ -115,16 +118,14 @@ version number. Only specifying a version number implies a = vector.
 
 # SEE ALSO
 
-[Sub::Util](https://metacpan.org/pod/Sub::Util), [Devel::Hook](https://metacpan.org/pod/Devel::Hook).
+[Sub::Util](https://metacpan.org/pod/Sub%3A%3AUtil), [Devel::Hook](https://metacpan.org/pod/Devel%3A%3AHook).
 
 You can also look for additional information at:
 
 - [GitHub](https://github.com/gryphonshafer/Sub-Versions)
-- [CPAN](http://search.cpan.org/dist/Sub-Versions)
 - [MetaCPAN](https://metacpan.org/pod/Sub::Versions)
-- [AnnoCPAN](http://annocpan.org/dist/Sub-Versions)
-- [Travis CI](https://travis-ci.org/gryphonshafer/Sub-Versions)
-- [Coveralls](https://coveralls.io/r/gryphonshafer/Sub-Versions)
+- [GitHub Actions](https://github.com/gryphonshafer/Sub-Versions/actions)
+- [Codecov](https://codecov.io/gh/gryphonshafer/Sub-Versions)
 - [CPANTS](http://cpants.cpanauthors.org/dist/Sub-Versions)
 - [CPAN Testers](http://www.cpantesters.org/distro/D/Sub-Versions.html)
 
@@ -134,7 +135,7 @@ Gryphon Shafer <gryphon@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2018 by Gryphon Shafer.
+This software is copyright (c) 2021 by Gryphon Shafer.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
