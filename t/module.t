@@ -3,8 +3,7 @@ package _MockMyClass;
 use strict;
 use warnings;
 use Test::Most;
-
-BEGIN { use_ok('Sub::Versions'); }
+use Sub::Versions;
 
 sub new {
     return bless( {}, shift );
