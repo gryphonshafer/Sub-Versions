@@ -132,8 +132,8 @@ __END__
 =begin :badges
 
 =for markdown
-[![Build Status](https://travis-ci.org/gryphonshafer/Sub-Versions.svg)](https://travis-ci.org/gryphonshafer/Sub-Versions)
-[![Coverage Status](https://coveralls.io/repos/gryphonshafer/Sub-Versions/badge.png)](https://coveralls.io/r/gryphonshafer/Sub-Versions)
+[![build](https://github.com/gryphonshafer/Sub-Versions/workflows/build/badge.svg)](https://github.com/gryphonshafer/Sub-Versions/actions?query=workflow%3Abuild)
+[![codecov](https://codecov.io/gh/gryphonshafer/Sub-Versions/graph/badge.svg)](https://codecov.io/gh/gryphonshafer/Sub-Versions)
 
 =end :badges
 
@@ -253,8 +253,8 @@ You can also look for additional information at:
 =for :list
 * L<GitHub|https://github.com/gryphonshafer/Sub-Versions>
 * L<MetaCPAN|https://metacpan.org/pod/Sub::Versions>
-* L<Travis CI|https://travis-ci.org/gryphonshafer/Sub-Versions>
-* L<Coveralls|https://coveralls.io/r/gryphonshafer/Sub-Versions>
+* L<GitHub Actions|https://github.com/gryphonshafer/Sub-Versions/actions>
+* L<Codecov|https://codecov.io/gh/gryphonshafer/Sub-Versions>
 * L<CPANTS|http://cpants.cpanauthors.org/dist/Sub-Versions>
 * L<CPAN Testers|http://www.cpantesters.org/distro/D/Sub-Versions.html>
 
