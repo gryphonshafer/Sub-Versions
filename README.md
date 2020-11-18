@@ -6,7 +6,7 @@ Sub::Versions - Subroutine versioning syntactic sugar
 
 version 1.03
 
-[![build](https://github.com/gryphonshafer/Sub-Versions/workflows/build/badge.svg)](https://github.com/gryphonshafer/Sub-Versions/actions?query=workflow%3Abuild)
+[![test](https://github.com/gryphonshafer/Sub-Versions/workflows/test/badge.svg)](https://github.com/gryphonshafer/Sub-Versions/actions?query=workflow%3Atest)
 [![codecov](https://codecov.io/gh/gryphonshafer/Sub-Versions/graph/badge.svg)](https://codecov.io/gh/gryphonshafer/Sub-Versions)
 
 # SYNOPSIS
