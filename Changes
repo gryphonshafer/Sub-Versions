@@ -1,6 +1,7 @@
 Revision history for Sub::Versions
 
 {{$NEXT}}
+        - License migrate to Artistic 2.0
         - Test update to fix coverage metrics error
         - Migrate Travis CI and Coveralls to GitHub Actions and Codecov
         - Update copyright year
