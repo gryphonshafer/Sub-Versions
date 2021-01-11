@@ -1,6 +1,7 @@
 Revision history for Sub::Versions
 
 {{$NEXT}}
+        - Migrate to Test2::V0 and add exact
         - Improve .gitignore file
         - License migrate to Artistic 2.0
         - Test update to fix coverage metrics error

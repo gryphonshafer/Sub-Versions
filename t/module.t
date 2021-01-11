@@ -1,8 +1,8 @@
+use Test2::V0;
+
 package _MockMyClass;
 
-use strict;
-use warnings;
-use Test::Most;
+use exact -noautoclean;
 use Sub::Versions;
 
 sub new {
@@ -31,9 +31,7 @@ sub unversioned {
 
 package _MockMySubClass;
 
-use strict;
-use warnings;
-
+use exact -noautoclean;
 use base '_MockMyClass';
 
 sub out : v12 {
@@ -45,10 +43,6 @@ sub out : v13 {
 }
 
 package main;
-
-use strict;
-use warnings;
-use Test::Most;
 
 my $obj = _MockMyClass->new;
 
