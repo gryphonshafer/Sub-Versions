@@ -4,7 +4,7 @@ Sub::Versions - Subroutine versioning syntactic sugar
 
 # VERSION
 
-version 1.04
+version 1.05
 
 [![test](https://github.com/gryphonshafer/Sub-Versions/workflows/test/badge.svg)](https://github.com/gryphonshafer/Sub-Versions/actions?query=workflow%3Atest)
 [![codecov](https://codecov.io/gh/gryphonshafer/Sub-Versions/graph/badge.svg)](https://codecov.io/gh/gryphonshafer/Sub-Versions)
@@ -135,7 +135,7 @@ Gryphon Shafer <gryphon@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2016-2021 by Gryphon Shafer.
+This software is Copyright (c) 2016-2050 by Gryphon Shafer.
 
 This is free software, licensed under:
 
