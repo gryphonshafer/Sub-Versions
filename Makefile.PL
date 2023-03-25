@@ -31,36 +31,7 @@ my %WriteMakefileArgs = (
     "base" => 0,
     "warnings" => 0
   },
-  "VERSION" => "Sub::Versions - Subroutine versioning syntactic sugar
-1.05
-        return '1';
-        return '2';
-    $object->simple_method;     # returns "2"
-    $object->v1->simple_method; # returns "1"
-    # select "simple_method" 42 or higher if available
-        return '1';
-        return '2';
-This module provides automatic syntactic sugar for simple subroutine versioning.
-By specifying a in the form "v#" as a subroutine attributes, this
-can call subroutines by explicit or the latest version implicitly.
-    $object->simple_method;     # calls the latest of the method
-    $object->v1->simple_method; # calls 1 of the method
-Versions must be specified in the form `/v\d+/`. The exact number you
-use is irrelevant. The only importance is the relative value of the version
-numbers to each other. The largest number is considered the most
-current of the subroutine.
-        return '1';
-        return '2';
-subroutine name and the version. So for example, if you have "simple\_method"
-and you specify it as the "v2" version, then "simple\_method\_v2" gets injected
-version, then you'll get a subroutine redefined warning.
-to very simply calls to parts of the model. I needed to support legacy
-versions in parallel with the most recent and allow consumers to
-explicitly call a particular version.
-If you don't know the you want to access exactly, call the method
-`subver()` and provide it with a vector and method name.
-    # select "simple_method" 42 or higher if available
-number. Only specifying a version number implies a = vector.",
+  "VERSION" => "1.05",
   "test" => {
     "TESTS" => "t/*.t"
   }
