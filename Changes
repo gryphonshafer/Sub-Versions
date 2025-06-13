@@ -1,6 +1,7 @@
 Revision history for Sub::Versions
 
 {{$NEXT}}
+        - Add security policy as per CPANSec recommendation
 
 1.05      2022-03-19 17:52:47-07:00 America/Los_Angeles
         - Minor documentation update
